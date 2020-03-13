@@ -14,6 +14,13 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var questionTextField: UITextField!
     
     @IBOutlet weak var answerTextField: UITextField!
+    
+    @IBOutlet weak var extraAnswerone: UITextField!
+    
+    
+    @IBOutlet weak var extraAnswertwo: UITextField!
+    
+   
     var initialQuestion: String?
     var initialAnswer: String?
     
@@ -42,14 +49,18 @@ class CreationViewController: UIViewController {
     @IBAction func didTapOnDone(_ sender: Any) {
         let questionText = questionTextField.text
         let answerText = answerTextField.text
-        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
+        let answerone = extraAnswerone.text
+        let answertwo = extraAnswertwo.text
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty || extraAnswerone == nil || extraAnswertwo == nil  {
             let alert = UIAlertController(title: "Missing test", message: "You need to enter both a question and answer", preferredStyle: .alert)
             present(alert,animated: true)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
         }
-        else { flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
-        dismiss(animated: true)
+        else {
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerone: answerone!,extraAnswertwo: answertwo!)
+        
+            dismiss(animated: true)
      
         
     }

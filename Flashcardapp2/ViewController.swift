@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var Frontlabel: UILabel!
     
+    @IBOutlet weak var optionOne: UIButton!
+    
+    @IBOutlet weak var optionTwo: UIButton!
+    
+    @IBOutlet weak var optionThree: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +38,23 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateFlashcard(question: String, answer:String){
+    
+    @IBAction func didTaponAnswer(_ sender: Any) {
+        Frontlabel.isHidden = true
+        Backlabel.isHidden = false
+    }
+    
+    
+    
+    
+    func updateFlashcard(question: String, answer:String, extraAnswerone: String?, extraAnswertwo: String?){
         dismiss(animated: true)
         Frontlabel.text = question
         Backlabel.text = answer
+        optionOne.setTitle(extraAnswerone, for: .normal)
+         optionTwo.setTitle(answer, for: .normal)
+        optionThree.setTitle(extraAnswertwo, for: .normal)
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
   
