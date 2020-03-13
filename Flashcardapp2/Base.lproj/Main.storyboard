@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Addis Abeba " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSM-B7-7O8">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="127"/>
+                                        <rect key="frame" x="0.0" y="-79" width="306" height="206"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What it is the capital city of Ethiopia?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Th-Q9-M4f">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="127"/>
+                                        <rect key="frame" x="0.0" y="-80" width="306" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -45,6 +45,16 @@
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <segue destination="dnZ-Dv-JPH" kind="presentation" id="A21-bv-T2B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gED-Eb-zE8">
+                                <rect key="frame" x="311" y="369" width="30" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="✏️"/>
+                                <connections>
+                                    <segue destination="dnZ-Dv-JPH" kind="show" identifier="EditSegue" id="Rbp-pd-pfW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,7 +77,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+            <point key="canvasLocation" x="-162.31884057971016" y="111.83035714285714"/>
         </scene>
         <!--Creation View Controller-->
         <scene sceneID="NEF-xQ-AIh">
@@ -119,6 +129,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dnZ-Dv-JPH" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="axi-SJ-x7B"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8e2-nH-S30">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -133,4 +144,7 @@
             <point key="canvasLocation" x="760.86956521739137" y="111.83035714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A21-bv-T2B"/>
+    </inferredMetricsTieBreakers>
 </document>

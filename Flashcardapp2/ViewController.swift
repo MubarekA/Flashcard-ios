@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var Frontlabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,9 +38,25 @@ class ViewController: UIViewController {
         Backlabel.text = answer
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  
+        
         let navigationController = segue.destination as! UINavigationController
         let creationController = navigationController.topViewController as! CreationViewController
         creationController.flashcardsController = self
+    
+        //creationController.initialQuestion = Frontlabel.text
+        //creationController.initialAnswer = Backlabel.text
+        if segue.identifier == "EditSegue" {
+        creationController.initialQuestion = Frontlabel.text
+        creationController.initialAnswer = Backlabel.text
+          }
+   
+           // creationController.questionTextField.text = Frontlabel.text
+            // creationController.answerTextField.text = Backlabel.text
+    
+     
+ 
+     
     }
 
     
