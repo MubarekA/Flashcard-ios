@@ -1,7 +1,7 @@
 
 ## Lab 2
 
-Basic flashcard app that lets the user make their flash card.
+Basic flashcard app that lets the user make their own flash card.
 
 <img src="Walkthroughgif.gif" width=200><br>
 
