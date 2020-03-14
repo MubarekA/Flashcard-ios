@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var Flashcard: UIView!
+    
     @IBOutlet weak var Backlabel: UILabel!
     
     @IBOutlet weak var Frontlabel: UILabel!
@@ -24,6 +27,49 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Frontlabel.layer.cornerRadius = 20.0
+        Frontlabel.clipsToBounds = true
+        
+        Backlabel.layer.cornerRadius = 20.0
+        Backlabel.clipsToBounds = true
+        
+        optionOne.layer.borderWidth = 3.0
+        optionOne.layer.borderColor = #colorLiteral(red: 0, green: 0.5625661612, blue: 0.3010617495, alpha: 1)
+        optionOne.layer.cornerRadius = 20.0
+        
+        optionTwo.layer.borderWidth = 3.0
+              optionTwo.layer.borderColor = #colorLiteral(red: 0, green: 0.5625661612, blue: 0.3010617495, alpha: 1)
+              optionTwo.layer.cornerRadius = 20.0
+        optionThree.layer.borderWidth = 3.0
+              optionThree.layer.borderColor = #colorLiteral(red: 0, green: 0.5625661612, blue: 0.3010617495, alpha: 1)
+              optionThree.layer.cornerRadius = 20.0
+     
+        Flashcard.layer.cornerRadius = 20.0
+            Flashcard.layer.shadowRadius = 15.0
+            Flashcard.layer.shadowOpacity = 0.7
+            Flashcard.layer.shadowColor = UIColor.blue.cgColor
+           
+
+             
+             optionOne.layer.borderWidth = 3.0
+             optionOne.layer.borderColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+            optionOne.layer.cornerRadius = 20.0
+             
+             
+             optionTwo.layer.borderWidth = 3.0
+             optionTwo.layer.borderColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+             optionTwo.layer.cornerRadius = 20.0
+               
+             
+             
+             optionThree.layer.borderWidth = 3.0
+             optionThree.layer.borderColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+             optionThree.layer.cornerRadius = 20.0
+                 
+             
+        
+        
+        
     }
     
     
@@ -43,6 +89,17 @@ class ViewController: UIViewController {
         Frontlabel.isHidden = true
         Backlabel.isHidden = false
     }
+    
+    
+    @IBAction func didTaponOptionone(_ sender: Any) {
+        optionOne.isHidden = true
+    }
+    
+    
+    @IBAction func didTapOnOptionThree(_ sender: Any) {
+        optionThree.isHidden = true
+    }
+    
     
     
     
