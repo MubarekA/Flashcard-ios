@@ -28,15 +28,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What it is the capital city of Ethiopia?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Th-Q9-M4f">
-                                        <rect key="frame" x="0.0" y="-80" width="306" height="205"/>
+                                        <rect key="frame" x="0.0" y="-80" width="306" height="207"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vnj-XT-LdY" appends="YES" id="XL1-pl-fLo"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjD-LR-xto">
                                 <rect key="frame" x="192" y="809" width="30" height="53"/>
@@ -93,27 +98,53 @@
                                     <action selector="didTaponAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4XR-ni-e5d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmN-Jy-bFd">
+                                <rect key="frame" x="336" y="820" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xjh-BI-2FP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-n0-b78">
+                                <rect key="frame" x="62" y="820" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="didTapOnPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q2W-do-rQF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFW-o9-RJR">
+                                <rect key="frame" x="63" y="229" width="30" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="❌"/>
+                                <connections>
+                                    <action selector="didTaponDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6eM-JG-ADd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="6i7-fa-QGU" appends="YES" id="KPG-6V-pCh"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="Backlabel" destination="RSM-B7-7O8" id="r69-Wl-PA5"/>
+                        <outlet property="DeleteButton" destination="hFW-o9-RJR" id="Oi1-Zz-2lu"/>
                         <outlet property="Flashcard" destination="qWZ-JH-xQL" id="iHh-Ch-1Rg"/>
                         <outlet property="Frontlabel" destination="5Th-Q9-M4f" id="LJ9-bj-dkX"/>
+                        <outlet property="nextButton" destination="VmN-Jy-bFd" id="A9L-WK-O2B"/>
                         <outlet property="optionOne" destination="LpD-Vz-Tbo" id="Zrh-2n-KhG"/>
                         <outlet property="optionThree" destination="rV1-fN-dpt" id="BEl-n8-A3I"/>
                         <outlet property="optionTwo" destination="MN0-eA-mBy" id="6IJ-kJ-Dm6"/>
+                        <outlet property="prevButton" destination="yiX-n0-b78" id="SZt-Ca-PmC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6i7-fa-QGU">
+                <tapGestureRecognizer id="vnj-XT-LdY">
                     <connections>
-                        <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="d1U-Bt-4B9"/>
+                        <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="25X-zb-nOq"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -199,6 +230,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="A21-bv-T2B"/>
+        <segue reference="Rbp-pd-pfW"/>
     </inferredMetricsTieBreakers>
 </document>

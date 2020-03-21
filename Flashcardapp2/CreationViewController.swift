@@ -23,6 +23,8 @@ class CreationViewController: UIViewController {
    
     var initialQuestion: String?
     var initialAnswer: String?
+    var initialAnswerOne: String?
+    var initialAnswerTwo: String?
     
     
     
@@ -31,7 +33,9 @@ class CreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         questionTextField.text = initialQuestion
-        answerTextField.text = initialAnswer 
+        answerTextField.text = initialAnswer
+        extraAnswerone.text = initialAnswerOne
+        extraAnswertwo.text = initialAnswerTwo
 
         // Do any additional setup after loading the view.
     }
@@ -51,14 +55,18 @@ class CreationViewController: UIViewController {
         let answerText = answerTextField.text
         let answerone = extraAnswerone.text
         let answertwo = extraAnswertwo.text
-        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty || extraAnswerone == nil || extraAnswertwo == nil  {
-            let alert = UIAlertController(title: "Missing test", message: "You need to enter both a question and answer", preferredStyle: .alert)
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty || answertwo == nil || answerone == nil || answerone!.isEmpty || answertwo!.isEmpty {
+            let alert = UIAlertController(title: "Missing test", message: "You need to enter a question, an answer and choices", preferredStyle: .alert)
             present(alert,animated: true)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
         }
         else {
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerone: answerone!,extraAnswertwo: answertwo!)
+            var isExisting = false
+            if initialQuestion != nil{
+                isExisting = true
+            }
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerone: answerone!,extraAnswertwo: answertwo!, isExisting: true)
         
             dismiss(animated: true)
      
