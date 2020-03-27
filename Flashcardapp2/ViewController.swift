@@ -42,6 +42,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var DeleteButton: UIButton!
     
+    @IBOutlet weak var editButton: UIButton!
     
     //Array to hold our flash cards
     //Flashcardd not be confused with the IBoutlet flashcard with both cards
@@ -51,7 +52,15 @@ class ViewController: UIViewController {
     
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Flashcard.alpha = 0.0
+        Flashcard.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.Flashcard.alpha = 1.0
+            self.Flashcard.transform = CGAffineTransform.identity
+        })
+    }
     
     
     
@@ -113,20 +122,36 @@ class ViewController: UIViewController {
     
      
              DeleteButton.layer.cornerRadius = 10.0
-        
+        editButton.layer.cornerRadius = 10.0
         
     }
     
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        if Frontlabel.isHidden {
-            Backlabel.isHidden = true
-            Frontlabel.isHidden = false
-        }
-        else {
-            Frontlabel.isHidden = true
-            Backlabel.isHidden = false
-        }
+        flipFlashcard()
+
+    }
+    func flipFlashcard(){
+        UIView.transition(with: Flashcard, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if self.Frontlabel.isHidden {
+                self.Backlabel.isHidden = true
+                self.Frontlabel.isHidden = false
+            }
+            else {
+                self.Frontlabel.isHidden = true
+                self.Backlabel.isHidden = false
+            }
+
+            
+        })
+//        if Frontlabel.isHidden {
+//            Backlabel.isHidden = true
+//            Frontlabel.isHidden = false
+//        }
+//        else {
+//            Frontlabel.isHidden = true
+//            Backlabel.isHidden = false
+//        }
     }
     
     
@@ -156,6 +181,8 @@ class ViewController: UIViewController {
         
         //update button
         updateNextPrevButtons()
+        //animation
+        animateCardOut()
          
         //to make the options reapper incase the user gets the answers wrong the previous flash card
         optionOne.isHidden = false
@@ -173,12 +200,27 @@ class ViewController: UIViewController {
          //update button
         
         
+        
         Frontlabel.isHidden = false
         updateNextPrevButtons()
         //to make the options reapper incase the user gets the answers wrong the previous flash card
               optionOne.isHidden = false
                optionThree.isHidden = false
         
+    }
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.Flashcard.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+            self.animateCardIn()
+            self.updateLabels()
+        })
+    }
+    func animateCardIn(){
+           Flashcard.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        UIView.animate(withDuration: 0.3){
+            self.Flashcard.transform = CGAffineTransform.identity
+        }
     }
     
 
