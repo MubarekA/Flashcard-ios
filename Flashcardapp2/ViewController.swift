@@ -22,7 +22,7 @@ struct Flashcardd {
 
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var Flashcard: UIView!
     
@@ -43,6 +43,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var DeleteButton: UIButton!
     
     @IBOutlet weak var editButton: UIButton!
+    
+    //Button to remember what the correct answer is
+    var correctAnswerButton: UIButton!
+
     
     //Array to hold our flash cards
     //Flashcardd not be confused with the IBoutlet flashcard with both cards
@@ -132,7 +136,7 @@ class ViewController: UIViewController {
 
     }
     func flipFlashcard(){
-        UIView.transition(with: Flashcard, duration: 0.3, options: .transitionFlipFromRight, animations: {
+        UIView.transition(with: Flashcard, duration: 0.5, options: .transitionFlipFromRight, animations: {
             if self.Frontlabel.isHidden {
                 self.Backlabel.isHidden = true
                 self.Frontlabel.isHidden = false
@@ -144,31 +148,47 @@ class ViewController: UIViewController {
 
             
         })
-//        if Frontlabel.isHidden {
-//            Backlabel.isHidden = true
-//            Frontlabel.isHidden = false
-//        }
-//        else {
-//            Frontlabel.isHidden = true
-//            Backlabel.isHidden = false
-//        }
+
+    }
+    @IBAction func didTaponOptionOne(_ sender: Any) {
+         
+        if optionOne == correctAnswerButton {
+                flipFlashcard()
+            }
+            else {
+            
+            Frontlabel.isHidden = false
+            Backlabel.isHidden = false
+            
+        }
     }
     
+    @IBAction func didTaponOptionTwo(_ sender: Any) {
+        if optionTwo == correctAnswerButton {
+                       flipFlashcard()
+                   }
+                   else {
+                   
+                   Frontlabel.isHidden = false
+                   Backlabel.isHidden = false
+                   
+               }
     
-    @IBAction func didTaponAnswer(_ sender: Any) {
-        Frontlabel.isHidden = true
-        Backlabel.isHidden = false
-        
     }
     
-    
-    @IBAction func didTaponOptionone(_ sender: Any) {
-        optionOne.isHidden = true
-    }
+
     
     
     @IBAction func didTapOnOptionThree(_ sender: Any) {
-        optionThree.isHidden = true
+          if optionThree == correctAnswerButton {
+                flipFlashcard()
+            }
+            else {
+            
+            Frontlabel.isHidden = false
+            Backlabel.isHidden = false
+            
+        }
     }
     
     
@@ -400,6 +420,21 @@ class ViewController: UIViewController {
         //update labels
         Frontlabel.text = currentFlashcard.question
         Backlabel.text = currentFlashcard.answer
+        
+        let buttons = [optionOne,optionOne,optionThree].shuffled()
+        let answers = [currentFlashcard.answer,currentFlashcard.extraAnswerone,currentFlashcard.extraAnswertwo].shuffled()
+        
+        
+        
+        
+        
+        for(button,answer) in zip(buttons,answers) {
+            button?.setTitle(answer, for: .normal)
+            
+            if answer == currentFlashcard.answer {
+            correctAnswerButton = button
+        }
+//update buttons.
         optionOne.setTitle(currentFlashcard.extraAnswerone, for: .normal)
         optionTwo.setTitle(currentFlashcard.answer, for: .normal)
          optionThree.setTitle(currentFlashcard.extraAnswertwo, for: .normal)
@@ -416,3 +451,4 @@ class ViewController: UIViewController {
     
 
 
+}
