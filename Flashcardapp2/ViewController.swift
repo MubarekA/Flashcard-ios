@@ -176,10 +176,9 @@ class ViewController: UIViewController {
         
       //Increase the current index
         CurrentIndex = CurrentIndex + 1
-        //update labels
+  
         updateLabels()
         
-        //update button
         updateNextPrevButtons()
         //animation
         animateCardOut()
@@ -198,7 +197,7 @@ class ViewController: UIViewController {
         //update labels
         updateLabels()
          //update button
-        
+        animatecardoutpre()
         
         
         Frontlabel.isHidden = false
@@ -207,6 +206,20 @@ class ViewController: UIViewController {
               optionOne.isHidden = false
                optionThree.isHidden = false
         
+    }
+    func animatecardoutpre(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.Flashcard.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+            self.animatecardinpre()
+            self.updateLabels()
+        })
+    }
+    func animatecardinpre(){
+        Flashcard.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        UIView.animate(withDuration: 0.3) {
+            self.Flashcard.transform = CGAffineTransform.identity
+        }
     }
     func animateCardOut(){
         UIView.animate(withDuration: 0.3, animations: {
@@ -282,9 +295,9 @@ class ViewController: UIViewController {
                     //update current index
                     CurrentIndex = flashcards.count - 1
             print("Our current index is \(CurrentIndex)")
-            //update buttons
+          
              updateNextPrevButtons()
-             //update labels
+  
              updateLabels()
              
             
