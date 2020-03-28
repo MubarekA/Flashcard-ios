@@ -1,9 +1,9 @@
 
-## Lab 2
+## Lab 4
 
 Basic flashcard app that lets the user make their own flash card.
 
-<img src="Walkthroughgif.gif" width=200><br>
+<img src="Lab4.gif" width=200><br>
 
 
 ## Required
@@ -20,3 +20,10 @@ Basic flashcard app that lets the user make their own flash card.
 - [X] Push code to GitHub
 - [X] User gets an error if they try to create a new flashcard with no question or answer
 - [X] User can edit existing flashcard
+- [X] User should see the app icon 
+- [X] User should see a splash screen
+- [X] User should see an flip animation when revealing the answer
+- [X] User should see a slide animation when going to the next flashcard
+- [X] User should see a slide animation when going to the previous flashcard
+- [X] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [X] Correct answer in multiple choice should be random

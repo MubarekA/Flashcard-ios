@@ -160,6 +160,7 @@ class ViewController: UIViewController {
             Frontlabel.isHidden = false
             Backlabel.isHidden = false
             
+            
         }
     }
     
@@ -296,7 +297,7 @@ class ViewController: UIViewController {
     func updateFlashcard(question: String, answer:String, extraAnswerone: String?, extraAnswertwo: String?, isExisting:Bool){
         let flashcard = Flashcardd(question: question, answer: answer, optionone: extraAnswerone!, optiontwo: extraAnswertwo!, extraAnswerone: extraAnswerone!, extraAnswertwo: extraAnswertwo!)
         if isExisting {
-            flashcards[CurrentIndex] = flashcard
+         flashcards.append(flashcard)
             //update buttons
              updateNextPrevButtons()
              //update labels
@@ -421,7 +422,7 @@ class ViewController: UIViewController {
         Frontlabel.text = currentFlashcard.question
         Backlabel.text = currentFlashcard.answer
         
-        let buttons = [optionOne,optionOne,optionThree].shuffled()
+        let buttons = [optionOne,optionTwo,optionThree].shuffled()
         let answers = [currentFlashcard.answer,currentFlashcard.extraAnswerone,currentFlashcard.extraAnswertwo].shuffled()
         
         
@@ -435,10 +436,10 @@ class ViewController: UIViewController {
             correctAnswerButton = button
         }
 //update buttons.
-        optionOne.setTitle(currentFlashcard.extraAnswerone, for: .normal)
-        optionTwo.setTitle(currentFlashcard.answer, for: .normal)
-         optionThree.setTitle(currentFlashcard.extraAnswertwo, for: .normal)
-        
+//        optionOne.setTitle(currentFlashcard.extraAnswerone, for: .normal)
+//        optionTwo.setTitle(currentFlashcard.answer, for: .normal)
+//         optionThree.setTitle(currentFlashcard.extraAnswertwo, for: .normal)
+//
     }
 
   
