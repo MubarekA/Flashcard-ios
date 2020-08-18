@@ -1,7 +1,9 @@
 
 ## Lab 4
 
-Basic flashcard app that lets the user make their own flash card.
+A great flashcard application that can help students improve study habits by making custom flash cards. 
+If you're interested in using this application you can see instructions on how to use it on your 
+ios device <a href="https://www.youtube.com/watch?v=bqh6YaMxgbE"> here </a>.  
 
 <img src="Lab4.gif" width=200><br>
 
